@@ -25,7 +25,6 @@ class AppAsset extends AssetBundle
         'css/animate.css',
         'css/main.css',
         'css/responsive.css',
-        //'css/site.css',
     ];
     public $js = [
         //'js/jquery.js',
@@ -33,6 +32,8 @@ class AppAsset extends AssetBundle
         'js/jquery.scrollUp.min.js',
         'js/price-range.js',
         'js/jquery.prettyPhoto.js',
+        'js/jquery.cookie.js',
+        'js/jquery.accordion.js',
         'js/main.js',
     ];
     public $depends = [
