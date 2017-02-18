@@ -3,8 +3,6 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
-
-$this->title = 'category/index';
 ?>
 
 <section id="slider"><!--slider-->
