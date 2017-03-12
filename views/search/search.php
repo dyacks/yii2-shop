@@ -53,34 +53,27 @@ use yii\widgets\linkPager;
 
                 </div>
             </div>
-            
+
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center"><?= $category->name; ?></h2>
+                    <h2 class="title text-center">Результаты поиска: <?= Html::encode($q); ?></h2>
                     <?php if(!empty($products)): ?>
                         <?php $i = 0; foreach($products as $product):  ?>
                             <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name]) ?>
-                                        <h2><?= $product->price; ?> грн</h2>
-                                        <p><a href="<?= Url::to(['product/view', 'id' => $product->id]) ?>"><?= $product->name; ?></a></p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    </div>
-                                    <!--div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name]) ?>
+                                            <h2><?= $product->price; ?> грн</h2>
+                                            <p><a href="<?= Url::to(['product/view', 'id' => $product->id]) ?>"><?= $product->name; ?></a></p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
-                                    </div-->
-                                    <?php if( $product->new ): ?>
-                                        <?= Html::img("@web/images/home/new.png", ['class' => 'new']) ?>
-                                    <?php endif; ?>
-                                    <?php if( $product->sale ): ?>
-                                        <?= Html::img("@web/images/home/sale.png", ['class' => 'new']) ?>
-                                    <?php endif; ?>
+                                        <?php if( $product->new ): ?>
+                                            <?= Html::img("@web/images/home/new.png", ['class' => 'new']) ?>
+                                        <?php endif; ?>
+                                        <?php if( $product->sale ): ?>
+                                            <?= Html::img("@web/images/home/sale.png", ['class' => 'new']) ?>
+                                        <?php endif; ?>
 
                                     </div>
                                     <div class="choose">
@@ -91,27 +84,22 @@ use yii\widgets\linkPager;
                                     </div>
                                 </div>
                             </div>
-                        <?php $i++; ?>
+                            <?php $i++; ?>
                             <?php if($i % 3 == 0): ?>
                                 <div class="clearfix"></div>
                             <?php endif; ?>
                         <?php endforeach; ?>
                         <div class="clearfix"></div>
                         <?php
-                            echo LinkPager::widget([
-                                'pagination' => $pages,
-                            ]);
+                        echo LinkPager::widget([
+                            'pagination' => $pages,
+                        ]);
                         ?>
-                        <?php else: ?>
-                        <h2>Товары не найдены</h2>
+                    <?php else: ?>
+                        <div class="text-center">
+                            <h2>По Вашему запросу ничего не найдено</h2>
+                        </div>
                     <?php endif; ?>
-
-<!--                    <ul class="pagination">-->
-<!--                        <li class="active"><a href="">1</a></li>-->
-<!--                        <li><a href="">2</a></li>-->
-<!--                        <li><a href="">3</a></li>-->
-<!--                        <li><a href="">&raquo;</a></li>-->
-<!--                    </ul>-->
                 </div><!--features_items-->
             </div>
         </div>

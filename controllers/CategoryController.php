@@ -18,7 +18,6 @@ class CategoryController extends AppController{
     }
 
     public function actionView($id){
-        $id = Yii::$app->request->get('id');
         $category = Category::findOne($id);
         if(empty($category))
             throw new HttpException(404, 'Нет такой категории');
